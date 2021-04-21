@@ -1,5 +1,6 @@
 import express from "express";
 // node does not run "import/from" ( typescript -D & tsc --init )
+import "./database";
 
 const app = express();
 
