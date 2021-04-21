@@ -8,13 +8,13 @@ class UsersService {
         // Check if user already exists
 
         const userExists = await usersRepository.findOne({
-            email
+            email,
         });
 
         if(userExists) return userExists;
 
         const user = usersRepository.create({
-            email
+            email,
         });
 
         await usersRepository.save(user);

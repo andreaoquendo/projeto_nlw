@@ -20,6 +20,7 @@ class SettingsService {
 
         if(userAlreadyexists){
             throw new Error("User already exists!");
+            //we need to pass up this error
         }
 
         // create rep
