@@ -1,8 +1,11 @@
 import express from "express";
 // node does not run "import/from" ( typescript -D & tsc --init )
 import "./database";
+import { routes } from "./routes";
 
 const app = express();
+
+app.use(express.json());
 
 /*
     Methods:
@@ -17,7 +20,7 @@ const app = express();
     - different methods can have the same route 
     - browsers always require get methods first
 
-*/
+
 
 // first route to be created
 app.get("/", (request, response) => {
@@ -32,5 +35,8 @@ app.post("/users", (request, response) => {
         message: "User saved successfully!!"
     });
 })
+
+*/
+app.use(routes);
 
 app.listen(3333, () => console.log("Server is running on port 3333."));
