@@ -15,6 +15,7 @@ export class CreateMessages1619017975421 implements MigrationInterface {
                     {
                         name:"admin_id",
                         type:"uuid",
+                        isNullable: true // can be NULL
 
                     },
                     {
@@ -29,6 +30,16 @@ export class CreateMessages1619017975421 implements MigrationInterface {
                         name:"created_at",
                         type:"timestamp",
                         default:"now()"
+                    }
+                ],
+                foreignKeys: [
+                    {
+                        name: "FKUser",
+                        referencedTableName: "users",
+                        referencedColumnNames: ["id"],
+                        columnNames: ["user_id"], // sempre que eu tiver user_id, vai estar referenciando id na tabela users
+                        onDelete:"SET NULL",
+                        onUpdate: "SET NULL"
                     }
                 ]
             })
