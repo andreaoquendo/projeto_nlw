@@ -21,7 +21,17 @@ class MessagesService{
         await messagesRepository.save(message);
         return message;
     }
+    /* Criar uma lista de mensagens  */
 
+    async listByUser(user_id: string){
+        const messagesRepository = getCustomRepository(MessagesRepository);
+
+        const list = await messagesRepository.find({
+            user_id,
+        }); // retorna lista
+
+        return list;
+    }
 }
 
 export { MessagesService };
